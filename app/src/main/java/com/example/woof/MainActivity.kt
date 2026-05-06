@@ -109,13 +109,17 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DogItem(
     dog: Dog,
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
-    Card(modifier = modifier) {
+    Card(
+        onClick = { expanded = !expanded },
+        modifier = modifier
+    ) {
         Column(
             modifier = Modifier
                 .animateContentSize(
